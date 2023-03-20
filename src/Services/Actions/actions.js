@@ -1,5 +1,5 @@
 import axios from "axios"
-import { FETCH_DATA_SUCCESS, FETCH_DATA_COME, FETCH_DATA_ERROR } from "../Constant";
+import { FETCH_DATA_SUCCESS, FETCH_DATA_COME, FETCH_DATA_ERROR,FETCH_DATA_DELETE, FETCH_DATA_EDIT } from "../Constant";
 let url = "https://jsonplaceholder.typicode.com/users"
 
 export const fetchcome = () => {
@@ -19,6 +19,18 @@ export const  fetcherror = (err) => {
     return {
         type: FETCH_DATA_ERROR,
         payload: err
+    }
+}
+export const  fetchdelete = (id) => {
+    return {
+        type: FETCH_DATA_DELETE,
+        payload: id,
+    }
+}
+export const  fetchedit = (data) => {
+    return {
+        type: FETCH_DATA_EDIT,
+        payload: data,
     }
 }
 

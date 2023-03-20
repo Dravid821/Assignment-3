@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import carddata from './Services/Actions/actions';
 import { useDispatch, useSelector } from 'react-redux';
 
-import PersonalCard from './Components/PersonalCard';
+import PersonalCard from './Components/CardImage';
 
 export default function Main() {
   const items = useSelector((state) => state.datareducer.user)
