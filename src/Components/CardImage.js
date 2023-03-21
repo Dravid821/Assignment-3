@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import '../scss/cardimage.scss'
+import "../scss/cardimage.scss";
 import {
+  Container,
   Card,
   CardBody,
   CardTitle,
@@ -21,43 +22,37 @@ import { useDispatch } from "react-redux";
 import { fetchdelete } from "../Services/Actions/actions";
 import Cardedit from "./Cardedit";
 
-
 const PersonalCard = (props) => {
   const { name, email, website, phone, username, id } = props.data;
   const [modal, setModal] = useState(false);
   const [like, setlike] = useState(false);
   const dispatch = useDispatch();
-  
-  const handleForm=()=>{
-    setModal(true)
-  }
+
+  const handleForm = () => {
+    setModal(true);
+  };
 
   return (
     <>
-        <Cardedit
-        show={modal}
-        onHide={() => setModal(false)}
-        data={props.data}
-      />
-      <Card 
+      <Cardedit show={modal} onHide={() => setModal(false)} data={props.data} />
+      <Card
+        className="card"
         style={{
-          marginLeft:"4rem",
-          marginTop:"2rem",
           width: "20rem",
         }}
       >
         <img
+          className="img-fluid"
           alt="Sample"
           src={`https://avatars.dicebear.com/v2/avataaars/${username}.svg?options%5Bmood%5D%5B%5D=happy`}
         />
-
         <CardBody className="cbd">
           <CardTitle tag="h4">
             <div className="text-start">{name}</div>
           </CardTitle>
           <CardSubtitle className="mb-2 text-muted">
             <div className="text-start">
-              <li >
+              <li>
                 <FiMail />
                 <span className="fimail">{email}</span>
               </li>
@@ -72,23 +67,19 @@ const PersonalCard = (props) => {
             </div>
           </CardSubtitle>
         </CardBody>
-        <CardFooter className="d-flex justify-content-around foot" >
-          <Button
-            className="text-danger"
+        <CardFooter className="d-flex justify-content-around foot">
+          <button
+            className="btn text-danger"
             onClick={() => setlike((prevState) => !prevState)}
           >
             {like ? <AiFillHeart /> : <AiOutlineHeart />}
-          </Button>
-          <Button 
-          className="text-primary"
-          onClick={handleForm}>
+          </button>
+          <button className="btn" onClick={handleForm}>
             <AiFillEdit />
-          </Button>
-          <Button 
-          className="tetx-info"
-          onClick={() => dispatch(fetchdelete(id))}>
+          </button>
+          <button className="btn" onClick={() => dispatch(fetchdelete(id))}>
             <AiFillDelete />
-          </Button>
+          </button>
         </CardFooter>
       </Card>
     </>

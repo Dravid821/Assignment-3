@@ -14,8 +14,9 @@ export default function Main() {
   }, [dispatch]);
   return (
     <>
-      <div className='container'>
-        <div className='row text-center'>
+      <div className='contaner-fluid'>
+        <div className='row text-center d-flex justify-content-center '>
+      
             {
               items ? items.map(item => {
                 return (
