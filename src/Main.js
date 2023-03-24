@@ -31,17 +31,3 @@ export default function Main() {
     </>
   )
 }
-
-
-// return (
-//   <PersonalCard
-//     key={item.id}
-//     id={item.id}
-//     item={item}
-//     name={item.name}
-//     email={item.email}
-//     phone={item.phone}
-//     website={item.website}
-//     username={item.username}
-//   />
-// )
